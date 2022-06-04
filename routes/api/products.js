@@ -1,5 +1,6 @@
 //const { validate } = require("@hapi/joi/lib/base");
 const express = require("express");
+const cors=require("cors");
 let router = express.Router();
 const validateProduct=require("../../middlewares/validateProduct")
 var{ Product } = require("../../models/product")
