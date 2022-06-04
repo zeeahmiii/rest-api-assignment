@@ -1,5 +1,4 @@
-const app = require("../app");
-
+var express = require('express');
 function somMid(req,res,next){
  app.use(
      cors({
@@ -8,3 +7,4 @@ function somMid(req,res,next){
      })
  )
 }
+module.exports=somMid;
