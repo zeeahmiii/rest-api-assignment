@@ -15,7 +15,7 @@ router.get("/", async(req,res)=>{
 })
 
 //get single products
-router.get("/:id", async(req,res)=>{
+router.get("/:id",cors, async(req,res)=>{
     try{
     let product=await Product.findById(req.params.id);
     if(!product)
@@ -28,7 +28,7 @@ router.get("/:id", async(req,res)=>{
 })
 
 //UPDATE A RECORD
-router.put("/:id",validateProduct,async(req,res)=>{
+router.put("/:id",validateProduct,cors,async(req,res)=>{
     let product=await Product.findById(req.params.id);
     product.Name=req.body.Name;
     product.Description=req.body.Description;
@@ -40,14 +40,14 @@ router.put("/:id",validateProduct,async(req,res)=>{
 } )
 
 //Delete a record
-router.delete("/:id",async(req,res)=>{
+router.delete("/:id",cors,async(req,res)=>{
     let product=await Product.findByIdAndDelete(req.params.id);
     return res.send(product);
 } )
 
 //Add a record
 
-router.post("/",validateProduct, async (req,res) => {
+router.post("/",validateProduct,cors, async (req,res) => {
     
     let product = new Product();
     product.Name = req.body.Name;
