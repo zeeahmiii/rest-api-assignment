@@ -7,7 +7,7 @@ var{ Product } = require("../../models/product")
 
 //get products
 
-router.get("/", async(req,res)=>{
+router.get("/",cors, async(req,res)=>{
     let page=Number(req.query.page ? req.query.page : 1);
     let perpage=Number(req.query.perpage ? req.query.perpage :10);
         let skip=(perpage*(page-1))
