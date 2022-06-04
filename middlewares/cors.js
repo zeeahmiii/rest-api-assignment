@@ -6,6 +6,7 @@ function somMid(req,res,next){
          origin:"*",
          method:["GET","POST","PUT","DELETE"]
      })
- )
+ );
+ next();
 }
 module.exports=somMid;
