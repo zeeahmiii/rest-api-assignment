@@ -5,7 +5,7 @@ function somMid(req,res,next){
  app.use(
      cors({
          origin:"*",
-         method:["GET","POST","PUT","DELETE"]
+         method:["GET","POST","PUT","DELETE"],
      })
  );
  next();
