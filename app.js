@@ -5,6 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose=require("mongoose");
 const cors=require("cors");
+const dotenv=require("dotenv");
+dotenv.config({path:"config.env"})
+const db =process.env.monogo
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/api/users');
@@ -47,7 +50,7 @@ app.use(function(err, req, res, next) {
 });
 
 mongoose
-.connect("mongodb+srv://zee_ahmiii:Ahmad.123@cluster0.v7ykk.mongodb.net/car-product-crud",
+.connect(db,
 {useNewUrlParser: true})
 .then(()=>console.log("Connected to Mongo.."))
 .catch((error)=>console.log(error.message));
